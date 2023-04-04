@@ -16,6 +16,11 @@ let package = Package(
                 "TestableActivityKit",
             ]),
         .library(
+            name: "TestableOSLog",
+            targets: [
+                "TestableOSLog",
+            ]),
+        .library(
             name: "TestableStoreKit",
             targets: [
                 "TestableStoreKit",
@@ -39,6 +44,20 @@ let package = Package(
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
                 "Yumi",
+            ]
+        ),
+        .target(
+            name: "TestableOSLog",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+            ]
+        ),
+        .testTarget(
+            name: "TestableOSLogTests",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "TestableOSLog",
             ]
         ),
         .target(
