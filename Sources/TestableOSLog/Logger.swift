@@ -65,9 +65,7 @@ extension DependencyValues {
     }
 
     private enum LoggerKey: DependencyKey {
-        static var testValue: Logger {
-            unimplemented("Default logger is not implemented.")
-        }
+        static var testValue: Logger { .init { _, _ in } }
 
         static var liveValue: Logger {
             LoggerClient.liveValue.logger()
